@@ -11,7 +11,7 @@ function toggleTheme() {
     <header class="sticky top-0 z-20 border-b border-line bg-paper/90 backdrop-blur">
       <div class="mx-auto flex h-14 max-w-[100rem] items-center justify-between px-4">
         <div class="flex items-center gap-5">
-          <NuxtLink to="/" class="text-base font-semibold tracking-tight">Study Hub</NuxtLink>
+          <NuxtLink to="/" class="text-base font-semibold tracking-tight">Stackup</NuxtLink>
           <NuxtLink to="/roadmap" class="text-sm text-mute transition hover:text-ink" active-class="!text-ink font-medium">แผนที่การเรียน</NuxtLink>
         </div>
         <ClientOnly>

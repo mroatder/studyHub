@@ -1,4 +1,4 @@
-# Study Hub — Checklist ความคืบหน้า
+# Stackup (เดิมชื่อ Study Hub) — Checklist ความคืบหน้า
 
 > ไฟล์นี้ไว้ส่งต่องานระหว่าง session (เช่น token หมด หรือเปิด session ใหม่) **อัปเดตทุกครั้งที่ทำงานเสร็จหนึ่งส่วน**
 > อัปเดตล่าสุด: 2026-10-19 · อ่านคู่กับ [CLAUDE.md](CLAUDE.md) และ [REQUIREMENTS.md](REQUIREMENTS.md)

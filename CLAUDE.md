@@ -1,4 +1,4 @@
-# Study Hub — คู่มือสำหรับ Claude Code
+# Stackup (เดิมชื่อ Study Hub) — คู่มือสำหรับ Claude Code
 
 เว็บเรียนรู้ส่วนตัว (คนเดียว) เรียบเรียงบทเรียน IT / Cyber Security จากคอร์สอังกฤษเป็นภาษาไทย มีสื่อโต้ตอบ
 ก่อนทำอะไรให้อ่านตามลำดับ: **[PROGRESS.md](PROGRESS.md)** (ทำถึงไหน/ต้องทำอะไรต่อ) → [REQUIREMENTS.md](REQUIREMENTS.md) (ความต้องการต้นฉบับ)

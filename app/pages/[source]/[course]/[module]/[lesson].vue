@@ -19,7 +19,7 @@ const next = computed(() => surround.value?.[1])
 
 const { data: courseData } = await useCourse(source, course)
 
-useHead({ title: `${page.value.title} · Study Hub` })
+useHead({ title: `${page.value.title} · Stackup` })
 
 const toc = computed(() => page.value?.body?.toc?.links ?? [])
 </script>

@@ -7,7 +7,7 @@ const slug = route.params.slug as string
 const { data: all } = await useRoadmaps()
 const data = computed(() => all.value?.find((r) => r.slug === slug) ?? null)
 if (!data.value) throw createError({ statusCode: 404, statusMessage: 'ไม่พบแผนที่การเรียนนี้', fatal: true })
-useHead({ title: `${data.value.map.titleTh} · Study Hub` })
+useHead({ title: `${data.value.map.titleTh} · Stackup` })
 
 const onlyReady = ref(false)
 const open = ref<Set<string>>(new Set(data.value.groups.filter((g) => g.ready > 0).map((g) => g.id)))

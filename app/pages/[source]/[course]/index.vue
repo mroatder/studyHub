@@ -4,7 +4,7 @@ const source = route.params.source as string
 const course = route.params.course as string
 const { data } = await useCourse(source, course)
 if (!data.value) throw createError({ statusCode: 404, statusMessage: 'ไม่พบคอร์สนี้', fatal: true })
-useHead({ title: `${data.value.course.titleTh} · Study Hub` })
+useHead({ title: `${data.value.course.titleTh} · Stackup` })
 </script>
 
 <template>

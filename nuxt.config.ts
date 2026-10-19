@@ -29,7 +29,7 @@ export default defineNuxtConfig({
   app: {
     head: {
       htmlAttrs: { lang: 'th' },
-      title: 'Study Hub',
+      title: 'Stackup',
       meta: [
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
         { name: 'robots', content: 'noindex, nofollow' },

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 const { data: roadmaps } = await useRoadmaps()
-useHead({ title: 'แผนที่การเรียน · Study Hub' })
+useHead({ title: 'แผนที่การเรียน · Stackup' })
 const pct = (a: number, b: number) => (b ? Math.round((a / b) * 100) : 0)
 </script>
 
