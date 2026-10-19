@@ -6,10 +6,10 @@
 /* โทนขาว-ดำล้วน สลับโหมดด้วยตัวแปรชุดเดียว ไม่ต้องใส่ dark: ในแต่ละ component */
 :root {
   --paper: #ffffff;
-  --ink: #171717;
-  --mute: #737373;
-  --line: #e5e5e5;
-  --soft: #f6f6f6;
+  --ink: #0f0f0f;
+  --mute: #525252;
+  --line: #cfcfcf;
+  --soft: #f3f3f3;
 }
 .dark {
   --paper: #0c0c0c;
@@ -48,7 +48,7 @@ body {
 
 /* ปรับ typography ให้ใช้โทนเดียวกับเว็บ */
 .prose {
-  --tw-prose-body: color-mix(in srgb, var(--ink) 85%, transparent);
+  --tw-prose-body: color-mix(in srgb, var(--ink) 92%, transparent);
   --tw-prose-headings: var(--ink);
   --tw-prose-lead: var(--mute);
   --tw-prose-links: var(--ink);
@@ -75,6 +75,71 @@ body {
 .prose h2 a,
 .prose h3 a {
   text-decoration: none;
+}
+.prose :where(code):not(:where(pre *)) {
+  background: var(--soft);
+  border: 1px solid var(--line);
+  border-radius: 0.375rem;
+  padding: 0.1em 0.4em;
+  font-size: 0.88em;
+  font-weight: 500;
+}
+@media (pointer: coarse) {
+  figure button,
+  figure summary,
+  figure input[type='text'] {
+    min-height: 2.5rem;
+  }
+  header a,
+  main a.touch,
+  .touch {
+    display: inline-flex;
+    align-items: center;
+    min-height: 2.75rem;
+  }
+}
+.prose table {
+  margin: 0;
+  width: 100%;
+}
+@media (max-width: 639px) {
+  .prose table {
+    font-size: 0.8rem;
+    line-height: 1.55;
+    table-layout: auto;
+  }
+  .prose :where(th, td) {
+    padding: 0.4rem 0.35rem;
+    overflow-wrap: break-word;
+  }
+  .prose :where(td code, th code) {
+    padding: 0;
+    border: 0;
+    background: transparent;
+    font-size: 0.95em;
+    white-space: normal;
+    overflow-wrap: anywhere;
+  }
+}
+@media (max-width: 359px) {
+  .prose :where(th, td) {
+    overflow-wrap: anywhere;
+  }
+}
+@media (min-width: 640px) {
+  .prose table {
+    min-width: 26rem;
+  }
+  .prose :where(td code, th code) {
+    white-space: nowrap;
+  }
+}
+.prose :where(p, li) code {
+  overflow-wrap: anywhere;
+}
+.prose :where(code)::before,
+.prose :where(code)::after {
+  content: none;
 }
 .prose blockquote {
   font-style: normal;

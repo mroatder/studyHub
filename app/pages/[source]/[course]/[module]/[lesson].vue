@@ -37,8 +37,17 @@ const toc = computed(() => page.value?.body?.toc?.links ?? [])
     <div class="flex gap-10 px-4 py-8 lg:px-8">
       <article class="mx-auto min-w-0 max-w-5xl flex-1">
         <p class="text-xs uppercase tracking-wide text-mute">Module {{ page.module }} · Lesson {{ page.lesson }}</p>
-        <h1 class="mt-2 text-3xl font-bold leading-snug">{{ page.title }}</h1>
+        <h1 class="mt-2 text-2xl font-bold leading-snug sm:text-3xl">{{ page.title }}</h1>
         <p v-if="page.titleEn" class="text-mute">{{ page.titleEn }}</p>
+
+        <details v-if="toc.length" class="mt-4 rounded-lg border border-line bg-soft xl:hidden">
+          <summary class="flex min-h-11 cursor-pointer items-center px-3 text-sm font-medium">สารบัญหน้านี้</summary>
+          <ul class="space-y-1 border-t border-line px-3 py-2 text-sm">
+            <li v-for="l in toc" :key="l.id">
+              <a :href="`#${l.id}`" class="flex min-h-9 items-center text-mute hover:text-ink">{{ l.text }}</a>
+            </li>
+          </ul>
+        </details>
 
         <div
           class="prose mt-6 max-w-none text-[1.0625rem] leading-9 prose-headings:scroll-mt-20 prose-headings:no-underline [&_:is(h2,h3)_a]:no-underline prose-headings:leading-snug prose-table:text-base"
