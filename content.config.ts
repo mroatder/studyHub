@@ -15,5 +15,26 @@ export default defineContentConfig({
         createdAt: z.string().optional(),
       }),
     }),
+    courses: defineCollection({
+      type: 'data',
+      source: { include: '**/_course.yml', prefix: '' },
+      schema: z.object({
+        title: z.string(),
+        titleTh: z.string(),
+        description: z.string(),
+        sourceName: z.string(),
+        sourceUrl: z.string().optional(),
+        modules: z.array(z.string()),
+      }),
+    }),
+    modules: defineCollection({
+      type: 'data',
+      source: { include: '**/_module.yml', prefix: '' },
+      schema: z.object({
+        title: z.string(),
+        titleTh: z.string(),
+        description: z.string().optional(),
+      }),
+    }),
   },
 })

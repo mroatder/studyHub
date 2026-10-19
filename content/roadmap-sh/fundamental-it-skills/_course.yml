@@ -1,0 +1,7 @@
+title: "Fundamental IT Skills"
+titleTh: "พื้นฐานทักษะ IT"
+description: "ปูพื้นฐาน IT ที่จำเป็นก่อนเข้าสายไซเบอร์ซีเคียวริตี้ ตั้งแต่ฮาร์ดแวร์ ระบบปฏิบัติการ ไปจนถึงเครือข่าย"
+sourceName: "roadmap.sh"
+sourceUrl: "https://roadmap.sh/ai/course"
+modules:
+  - 01-computer-basics

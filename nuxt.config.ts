@@ -5,7 +5,8 @@ export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
   devtools: { enabled: true },
 
-  modules: ['@nuxt/content', '@nuxt/fonts', '@nuxtjs/color-mode', '@nuxtjs/supabase'],
+  // TODO ขั้นที่ 2: เพิ่ม '@nuxtjs/supabase' กลับเมื่อมี key
+  modules: ['@nuxt/content', '@nuxt/fonts', '@nuxtjs/color-mode'],
 
   css: ['~/assets/css/main.css'],
 
@@ -23,11 +24,6 @@ export default defineNuxtConfig({
     defaults: { subsets: ['thai', 'latin', 'latin-ext'], weights: [400, 500, 600, 700] },
     families: [{ name: 'IBM Plex Sans Thai', provider: 'google' }],
     providers: { bunny: false, fontshare: false, fontsource: false },
-  },
-
-  // เว็บส่วนตัว: ล็อกอินก่อนเข้าทุกหน้า (ตั้งค่าเต็มในขั้นที่ 2)
-  supabase: {
-    redirect: false,
   },
 
   app: {
