@@ -19,6 +19,7 @@ export async function useCourse(source: string, course: string) {
           title: meta?.title ?? folder,
           titleTh: meta?.titleTh ?? folder,
           description: meta?.description,
+          planned: meta?.planned ?? [],
           lessons: lessons.filter((l) => l.stem.startsWith(`${base}/${folder}/`)),
         }
       }),

@@ -1,0 +1,274 @@
+# Roadmap ของตำแหน่งงาน 1 ไฟล์ต่อ 1 ตำแหน่ง (ชื่อไฟล์ = slug ใน URL: /roadmap/<ชื่อไฟล์>)
+# เพิ่มตำแหน่งใหม่: คัดลอกไฟล์นี้เป็น content/roadmap/<slug>.yml แล้วแก้ข้อมูล
+# - order: เลขลำดับในหน้ารวม (น้อยขึ้นก่อน)
+# - groups[].topics[].lesson: path ของบทเรียนในเว็บ (ใส่เมื่อเขียนบทแล้ว หัวข้อจะกดเข้าได้เอง)
+# - groups[].course: path ของคอร์สที่เกี่ยวข้อง (ไม่ใส่ก็ได้)
+# หัวข้อเดียวกันใช้บทเรียนเดียวกันซ้ำในหลาย roadmap ได้ แค่ใส่ lesson ชี้ path เดียวกัน
+order: 1
+role: "สายความปลอดภัย"
+summary: "จากพื้นฐาน IT ไปจนถึงการป้องกันและรับมือภัยคุกคาม"
+title: "Cyber Security"
+titleTh: "แผนที่การเรียน Cyber Security"
+description: "ภาพรวมสิ่งที่ต้องเรียนเพื่อเข้าสายไซเบอร์ซีเคียวริตี้ เรียงจากพื้นฐาน IT ไปจนถึงความปลอดภัยเชิงลึก หัวข้อไหนมีบทเรียนในเว็บนี้แล้วกดเข้าไปเรียนได้เลย"
+sourceName: "roadmap.sh"
+sourceUrl: "https://roadmap.sh/cyber-security"
+groups:
+  - id: it-basics
+    title: "Fundamental IT Skills"
+    titleTh: "ทักษะ IT พื้นฐาน"
+    summary: "รากฐานที่ทุกสายงาน IT ต้องมี ก่อนเรียนความปลอดภัย"
+    course: "/roadmap-sh/fundamental-it-skills"
+    topics:
+      - title: "Computer Hardware Components"
+        titleTh: "ชิ้นส่วนฮาร์ดแวร์คอมพิวเตอร์"
+        lesson: "/roadmap-sh/fundamental-it-skills/01-computer-hardware-and-os/01-understanding-hardware-components"
+      - title: "Connection Types and their function"
+        titleTh: "ชนิดการเชื่อมต่อและหน้าที่"
+        lesson: "/roadmap-sh/fundamental-it-skills/01-computer-hardware-and-os/02-connection-types-and-functions"
+        children: ["NFC", "Bluetooth", "WiFi", "Infrared"]
+      - title: "OS-Independent Troubleshooting"
+        titleTh: "การแก้ปัญหาที่ไม่ขึ้นกับระบบปฏิบัติการ"
+      - title: "Understand Basics of Popular Suites"
+        titleTh: "พื้นฐานชุดโปรแกรมยอดนิยม"
+        children: ["MS Office Suite", "Google Suite", "iCloud"]
+      - title: "Basics of Computer Networking"
+        titleTh: "พื้นฐานเครือข่ายคอมพิวเตอร์"
+  - id: operating-systems
+    title: "Operating Systems"
+    titleTh: "ระบบปฏิบัติการ"
+    summary: "Windows, Linux และ macOS: ติดตั้ง ใช้งาน จัดการสิทธิ์และไฟล์"
+    topics:
+      - title: "Windows, Linux, MacOS"
+        titleTh: "ระบบปฏิบัติการหลัก 3 ตระกูล"
+        children: ["Windows", "Linux", "MacOS"]
+      - title: "Installation and Configuration"
+        titleTh: "การติดตั้งและตั้งค่า"
+        lesson: /roadmap-sh/fundamental-it-skills/01-computer-hardware-and-os/03-installing-windows
+      - title: "Different Versions and Differences"
+        titleTh: "เวอร์ชันต่างๆ และความแตกต่าง"
+      - title: "Navigating using GUI and CLI"
+        titleTh: "ใช้งานผ่านหน้าจอกราฟิกและบรรทัดคำสั่ง"
+        lesson: /roadmap-sh/fundamental-it-skills/01-computer-hardware-and-os/05-navigating-gui-and-cli
+      - title: "Understand Permissions"
+        titleTh: "สิทธิ์การเข้าถึง"
+      - title: "Installing Software and Applications"
+        titleTh: "ติดตั้งซอฟต์แวร์และแอป"
+      - title: "Performing CRUD on Files"
+        titleTh: "สร้าง อ่าน แก้ไข ลบไฟล์"
+        lesson: /roadmap-sh/fundamental-it-skills/02-file-management-and-troubleshooting/01-crud-operations-on-files
+      - title: "Troubleshooting"
+        titleTh: "การแก้ไขปัญหา"
+      - title: "Common Commands"
+        titleTh: "คำสั่งที่ใช้บ่อย"
+  - id: networking
+    title: "Networking Knowledge"
+    titleTh: "ความรู้เครือข่าย"
+    summary: "หัวใจของงาน Security: ถ้าไม่เข้าใจเครือข่าย จะวิเคราะห์การโจมตีไม่ได้"
+    topics:
+      - title: "Understand the OSI Model"
+        titleTh: "โมเดล OSI"
+      - title: "Common Protocols and their Uses"
+        titleTh: "โปรโตคอลที่พบบ่อยและการใช้งาน"
+      - title: "Common Ports and their Uses"
+        titleTh: "พอร์ตที่พบบ่อยและการใช้งาน"
+      - title: "SSL and TLS Basics"
+        titleTh: "พื้นฐาน SSL และ TLS"
+      - title: "Basics of NAS and SAN"
+        titleTh: "พื้นฐาน NAS และ SAN"
+      - title: "Basics of Subnetting"
+        titleTh: "พื้นฐานการแบ่งซับเน็ต"
+      - title: "Public vs Private IP Addresses"
+        titleTh: "IP สาธารณะและ IP ส่วนตัว"
+      - title: "IP Terminology"
+        titleTh: "ศัพท์เกี่ยวกับ IP"
+        children: ["localhost", "loopback", "CIDR", "subnet mask", "default gateway"]
+      - title: "Understand the Terminology"
+        titleTh: "ศัพท์เครือข่ายสำคัญ"
+        children: ["VLAN", "DMZ", "ARP", "VM", "DHCP", "DNS", "NAT", "IP", "Router", "Switch", "VPN", "MAN", "LAN", "WAN", "WLAN"]
+      - title: "Network Services"
+        titleTh: "บริการเครือข่ายพื้นฐาน"
+        children: ["DHCP", "DNS", "NTP", "IPAM"]
+      - title: "Network Topologies"
+        titleTh: "รูปแบบการเชื่อมต่อเครือข่าย"
+        children: ["Star", "Ring", "Mesh", "Bus"]
+      - title: "Network Protocols"
+        titleTh: "โปรโตคอลเครือข่าย"
+        children: ["SSH", "RDP", "FTP", "SFTP", "HTTP / HTTPS", "SSL / TLS"]
+      - title: "Basics of Virtualization"
+        titleTh: "พื้นฐานเวอร์ชวลไลเซชัน"
+        children: ["Hypervisor", "VM", "GuestOS", "HostOS", "VMWare", "VirtualBox", "ESXi", "Proxmox"]
+      - title: "Troubleshooting Tools"
+        titleTh: "เครื่องมือแก้ปัญหาเครือข่าย"
+        children: ["ping", "ipconfig", "tracert", "nslookup", "dig", "arp", "netstat", "route", "nmap", "tcpdump", "iptables", "Packet Sniffers", "Port Scanners", "Protocol Analyzers"]
+      - title: "Authentication Methodologies"
+        titleTh: "วิธียืนยันตัวตน"
+        children: ["Kerberos", "LDAP", "SSO", "RADIUS", "Certificates", "Local Auth"]
+  - id: security-skills
+    title: "Security Skills and Knowledge"
+    titleTh: "ทักษะและความรู้ด้านความปลอดภัย"
+    summary: "แนวคิด เครื่องมือ การโจมตี และการป้องกันที่ต้องรู้ในงาน Security"
+    topics:
+      - title: "Understand CIA Triad"
+        titleTh: "หลัก CIA Triad"
+      - title: "Authentication vs Authorization"
+        titleTh: "การยืนยันตัวตน vs การให้สิทธิ์"
+      - title: "MFA & 2FA"
+        titleTh: "การยืนยันตัวตนหลายปัจจัย"
+      - title: "Understand Concept of Defense in Depth"
+        titleTh: "การป้องกันหลายชั้น"
+      - title: "Core Concepts of Zero Trust"
+        titleTh: "แนวคิด Zero Trust"
+      - title: "Perimeter vs DMZ vs Segmentation"
+        titleTh: "ขอบเขตเครือข่าย DMZ และการแบ่งส่วน"
+      - title: "Understand the Definition of Risk"
+        titleTh: "ความหมายของความเสี่ยง"
+      - title: "Understand Backups and Resiliency"
+        titleTh: "การสำรองข้อมูลและความทนทานของระบบ"
+      - title: "Operating System Hardening"
+        titleTh: "การเสริมความแข็งแรงให้ระบบปฏิบัติการ"
+      - title: "Understand Hardening Concepts"
+        titleTh: "แนวคิดการเสริมความปลอดภัย"
+        children: ["MAC-based", "NAC-based", "Port Blocking", "Group Policy", "ACLs", "Sinkholes", "Patching", "Jump Server", "Endpoint Security"]
+      - title: "Basics of Cryptography"
+        titleTh: "พื้นฐานการเข้ารหัสลับ"
+        children: ["Salting", "Hashing", "Key Exchange", "PKI", "Private vs Public Keys", "Obfuscation"]
+      - title: "Secure vs Unsecure Protocols"
+        titleTh: "โปรโตคอลที่ปลอดภัย vs ไม่ปลอดภัย"
+        children: ["FTP vs SFTP", "SSL vs TLS", "IPSEC", "DNSSEC", "LDAPS", "SRTP", "S/MIME"]
+      - title: "Wireless Security"
+        titleTh: "ความปลอดภัยเครือข่ายไร้สาย"
+        children: ["EAP vs PEAP", "WPS", "WPA vs WPA2 vs WPA3 vs WEP"]
+      - title: "Understand the following Terms"
+        titleTh: "เครื่องมือป้องกันที่ควรรู้จัก"
+        children: ["Antivirus", "Antimalware", "EDR", "DLP", "ACL", "Firewall & Nextgen Firewall", "HIPS", "NIDS", "NIPS", "Host Based Firewall", "Sandboxing"]
+      - title: "Basics of IDS and IPS"
+        titleTh: "พื้นฐาน IDS และ IPS"
+      - title: "Honeypots"
+        titleTh: "กับดักล่อผู้โจมตี (Honeypot)"
+      - title: "Understand Concept of Isolation"
+        titleTh: "แนวคิดการแยกระบบ (Isolation)"
+      - title: "Learn how Malware works and Types"
+        titleTh: "มัลแวร์ทำงานอย่างไรและมีกี่ชนิด"
+      - title: "Privilege Escalation"
+        titleTh: "การยกระดับสิทธิ์"
+      - title: "Web Based Attacks and OWASP10"
+        titleTh: "การโจมตีเว็บและ OWASP Top 10"
+      - title: "Attack Types and Differences"
+        titleTh: "ประเภทการโจมตีและความแตกต่าง"
+        children: ["Phishing", "Whaling", "Smishing", "Spam vs Spim", "Shoulder Surfing", "Dumpster Diving", "Tailgating", "Social Engineering", "Reconnaissance", "Impersonation", "Watering Hole Attack", "Drive by Attack", "Typo Squatting", "Brute Force vs Password Spray"]
+      - title: "Common Attacks"
+        titleTh: "การโจมตีที่พบบ่อย"
+        children: ["DoS vs DDoS", "MITM", "Spoofing", "Evil Twin", "DNS Poisoning", "Deauth Attack", "VLAN Hopping", "Rogue Access Point", "Buffer Overflow", "Memory Leak", "XSS", "SQL Injection", "CSRF", "Replay Attack", "Pass the Hash", "Directory Traversal"]
+      - title: "Understand Threat Classification"
+        titleTh: "การจัดประเภทภัยคุกคาม"
+        children: ["Zero Day", "Known vs Unknown", "APT"]
+      - title: "Understand Common Hacking Tools"
+        titleTh: "เครื่องมือแฮกที่พบบ่อย"
+      - title: "Understand Common Exploit Frameworks"
+        titleTh: "เฟรมเวิร์กสำหรับเอ็กซ์พลอยต์"
+      - title: "Common Distros for hacking"
+        titleTh: "ลินุกซ์สำหรับงานทดสอบเจาะระบบ"
+        children: ["ParrotOS", "Kali Linux"]
+      - title: "LOLBAS"
+        titleTh: "ใช้เครื่องมือในระบบเพื่อจุดประสงค์ที่ไม่ตั้งใจ"
+      - title: "Penetration Testing Rules of Engagement"
+        titleTh: "กฎการทดสอบเจาะระบบ"
+      - title: "Blue / Red / Purple Teams"
+        titleTh: "ทีมสีน้ำเงิน แดง และม่วง"
+      - title: "False Negative / False Positive"
+        titleTh: "ผลลบลวง / ผลบวกลวง"
+        children: ["True Negative", "True Positive"]
+      - title: "Understand Handshakes"
+        titleTh: "กระบวนการจับมือ (Handshake)"
+      - title: "Understand Frameworks"
+        titleTh: "เฟรมเวิร์กด้านภัยคุกคาม"
+        children: ["ATT&CK", "Kill Chain", "Diamond Model"]
+      - title: "Cyber Kill Chain"
+        titleTh: "ห่วงโซ่การโจมตี (Cyber Kill Chain)"
+      - title: "Understand Common Standards"
+        titleTh: "มาตรฐานที่ใช้บ่อย"
+        children: ["ISO", "NIST", "RMF", "CIS", "CSF"]
+      - title: "Roles of Compliance and Auditors"
+        titleTh: "บทบาทของฝ่ายกำกับดูแลและผู้ตรวจสอบ"
+      - title: "SIEM and SOAR"
+        titleTh: "ระบบรวมศูนย์ตรวจจับและตอบสนอง"
+        children: ["SIEM", "SOAR"]
+      - title: "Learn how to find and use these logs"
+        titleTh: "การค้นหาและอ่านล็อก"
+        children: ["Event Logs", "syslogs", "netflow", "Packet Captures", "Firewall Logs"]
+      - title: "Basics of Threat Intel, OSINT"
+        titleTh: "ข่าวกรองภัยคุกคามและ OSINT"
+      - title: "Basics and Concepts of Threat Hunting"
+        titleTh: "แนวคิดการล่าภัยคุกคาม"
+      - title: "Basics of Vulnerability Management"
+        titleTh: "การบริหารช่องโหว่"
+      - title: "Basics of Reverse Engineering"
+        titleTh: "พื้นฐานวิศวกรรมย้อนกลับ"
+      - title: "Understand Basics of Forensics"
+        titleTh: "พื้นฐานนิติวิทยาศาสตร์ดิจิทัล"
+      - title: "Understand the Incident Response Process"
+        titleTh: "กระบวนการรับมือเหตุการณ์"
+        children: ["Preparation", "Identification", "Containment", "Eradication", "Recovery", "Lessons Learned"]
+      - title: "Understand Concept of Runbooks"
+        titleTh: "คู่มือปฏิบัติการ (Runbook)"
+      - title: "Tools for Incident Response and Discovery"
+        titleTh: "เครื่องมือรับมือเหตุการณ์"
+        children: ["nmap", "tracert", "nslookup", "curl", "hping", "ping", "arp", "cat", "dd", "head", "grep", "tail", "dig", "ipconfig", "wireshark", "winhex", "memdump", "FTK Imager", "autopsy"]
+      - title: "Understand Common Tools"
+        titleTh: "เครื่องมือตรวจสอบไฟล์และเว็บ"
+        children: ["VirusTotal", "Joe Sandbox", "any.run", "urlvoid", "urlscan", "WHOIS"]
+      - title: "Understand Audience"
+        titleTh: "รู้จักผู้รับสาร"
+        children: ["Stakeholders", "HR", "Legal", "Compliance", "Management"]
+  - id: cloud
+    title: "Cloud Skills and Knowledge"
+    titleTh: "ทักษะและความรู้ด้านคลาวด์"
+    summary: "ความปลอดภัยเมื่อระบบย้ายขึ้นคลาวด์"
+    topics:
+      - title: "Understand the Concept of Security in the Cloud"
+        titleTh: "ความปลอดภัยบนคลาวด์"
+      - title: "Basics and general flow of deploying in the cloud"
+        titleTh: "พื้นฐานและขั้นตอนการนำระบบขึ้นคลาวด์"
+      - title: "Cloud vs on-premises"
+        titleTh: "คลาวด์ต่างจากระบบในองค์กรอย่างไร"
+      - title: "Infrastructure as Code"
+        titleTh: "Infrastructure as Code"
+      - title: "Serverless"
+        titleTh: "แนวคิด Serverless"
+      - title: "Understand Cloud Services"
+        titleTh: "รูปแบบบริการคลาวด์"
+        children: ["SaaS", "PaaS", "IaaS"]
+      - title: "Cloud Models"
+        titleTh: "รูปแบบการใช้คลาวด์"
+        children: ["Private", "Public", "Hybrid"]
+      - title: "Common Cloud Environments"
+        titleTh: "ผู้ให้บริการคลาวด์หลัก"
+        children: ["AWS", "GCP", "Azure"]
+      - title: "Common Cloud Storage"
+        titleTh: "บริการเก็บข้อมูลบนคลาวด์"
+        children: ["S3", "Dropbox", "Box", "OneDrive", "Google Drive", "iCloud"]
+  - id: programming
+    title: "Programming Skills"
+    titleTh: "ทักษะการเขียนโปรแกรม"
+    summary: "ภาษาที่ใช้เขียนสคริปต์ เครื่องมือ และวิเคราะห์โค้ดในงาน Security"
+    topics:
+      - title: "Languages"
+        titleTh: "ภาษาโปรแกรมที่ควรรู้"
+        children: ["Python", "Go", "JavaScript", "C++", "Bash", "PowerShell"]
+  - id: practice
+    title: "Practice and Certifications"
+    titleTh: "ฝึกฝนและวัดผล"
+    summary: "แพลตฟอร์มฝึกทักษะและใบรับรองที่คนในสายนี้นิยม"
+    topics:
+      - title: "CTFs (Capture the Flag)"
+        titleTh: "การแข่งขัน CTF"
+        children: ["HackTheBox", "TryHackMe", "VulnHub", "picoCTF", "pwn.college"]
+      - title: "Beginner Certifications"
+        titleTh: "ใบรับรองระดับเริ่มต้น"
+        children: ["CompTIA A+", "CompTIA Linux+", "CompTIA Network+", "CCNA", "CompTIA Security+"]
+      - title: "Advanced Certifications"
+        titleTh: "ใบรับรองระดับสูง"
+        children: ["CEH", "CISA", "CISM", "GSEC", "GPEN", "GWAPT", "GIAC", "OSCP", "CREST", "CISSP"]
+      - title: "Keep Learning"
+        titleTh: "เรียนรู้ต่อเนื่อง"
+        children: ["GTFOBins", "WADCOMS"]

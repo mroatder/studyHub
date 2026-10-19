@@ -22,3 +22,6 @@ logs
 .env
 .env.*
 !.env.example
+
+# โน้ตดิบจากต้นฉบับ roadmap.sh (ห้ามขึ้น repo public)
+notes/

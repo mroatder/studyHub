@@ -8,11 +8,11 @@ defineProps<{ items: { title: string; subtitle?: string; points: string[] }[] }>
     <section
       v-for="(it, i) in items"
       :key="i"
-      class="rounded-2xl border border-slate-200 bg-slate-50 p-5 dark:border-slate-800 dark:bg-slate-900"
+      class="rounded-xl border border-line bg-soft p-5"
     >
       <h4 class="text-lg font-semibold">{{ it.title }}</h4>
-      <p v-if="it.subtitle" class="text-sm text-indigo-600 dark:text-indigo-400">{{ it.subtitle }}</p>
-      <ul class="mt-3 list-disc space-y-2 pl-5 leading-7 text-slate-700 dark:text-slate-300">
+      <p v-if="it.subtitle" class="text-sm text-mute">{{ it.subtitle }}</p>
+      <ul class="mt-3 list-disc space-y-2 pl-5 leading-7 text-ink/80">
         <li v-for="(p, j) in it.points" :key="j">{{ p }}</li>
       </ul>
     </section>

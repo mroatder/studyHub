@@ -3,7 +3,7 @@ defineProps<{ playing: boolean; isFirst: boolean; isLast: boolean; showPlay?: bo
 defineEmits<{ prev: []; next: []; toggle: []; reset: [] }>()
 
 const btn =
-  'inline-flex min-h-10 items-center justify-center rounded-lg border border-slate-300 px-3 text-sm font-medium transition hover:bg-slate-100 disabled:opacity-40 disabled:hover:bg-transparent dark:border-slate-700 dark:hover:bg-slate-800'
+  'inline-flex min-h-10 items-center justify-center rounded-lg border border-line px-3 text-sm font-medium transition hover:bg-soft disabled:opacity-40 disabled:hover:bg-transparent'
 </script>
 
 <template>
