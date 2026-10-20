@@ -49,6 +49,8 @@ npm run typecheck                       # ต้องผ่านทุกค�
 ของบทติดตั้ง OS: `install-planner`, `disk-layout`, `fs-lab`, `install-flow`, `post-install-order` (Windows), `linux-mounts`, `ufw-lockout`
 **`terminal-sim{title="..." prompt="..." :commands='[{"cmd","out","note"}]'}`** เทอร์มินัลจำลองใช้ซ้ำได้ทุกบทที่มีคำสั่ง: ใน `out` ใช้ `⏎` แทนการขึ้นบรรทัดใหม่ (MDC กลืน `\n`), ใช้ `⧵` แทน `\` (MDC กลืน backslash แม้เขียน `\\` หรือ `\`), ห้ามมีเครื่องหมาย `'` และ `"` ใน JSON
 ของบท CRUD: `fs-ops-lab` (คำสั่งไฟล์กระทบรายการไดเรกทอรี/บล็อกดิสก์อย่างไร ก่อน-หลัง), `redirect-lab` (`>` เทียบ `>>`), `crud-map{:groups='[...]'}` (ตารางเทียบคำสั่งแยกแท็บ ใช้ `⧵` แทน `\`)
+ของบทสิทธิ์: `perm-calc` (สลับ rwx ↔ ฐานแปด ↔ chmod, ไฟล์/โฟลเดอร์), `umask-lab`, `perm-trace` (kernel ตรวจสิทธิ์ตามพาธ), `acl-eval` (ลำดับ explicit/inherited Allow/Deny ของ NTFS)
+ของบทระเบียบวิธีแก้ปัญหา: `trouble-loop` (วงจร 6 ขั้น ตัดสินใจที่ขั้น 3 และ 5), `fault-finder` (หาจุดเสียของเครือข่าย เทียบ top-down/bottom-up/divide and conquer)
 ของบท GUI/CLI: `path-navigator` (กดเลือกตำแหน่งปัจจุบัน+ปลายทางในต้นไม้ แสดง absolute/relative path สลับ Linux/Windows)
 การควบคุมกลางอยู่ที่ [useStepper.ts](app/composables/useStepper.ts) และ [AnimControls.vue](app/components/AnimControls.vue)
 

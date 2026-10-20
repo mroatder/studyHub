@@ -51,6 +51,7 @@ groups:
         lesson: /roadmap-sh/fundamental-it-skills/01-computer-hardware-and-os/05-navigating-gui-and-cli
       - title: "Understand Permissions"
         titleTh: "สิทธิ์การเข้าถึง"
+        lesson: /roadmap-sh/fundamental-it-skills/02-file-management-and-troubleshooting/02-file-and-directory-permissions
       - title: "Installing Software and Applications"
         titleTh: "ติดตั้งซอฟต์แวร์และแอป"
       - title: "Performing CRUD on Files"
@@ -58,6 +59,7 @@ groups:
         lesson: /roadmap-sh/fundamental-it-skills/02-file-management-and-troubleshooting/01-crud-operations-on-files
       - title: "Troubleshooting"
         titleTh: "การแก้ไขปัญหา"
+        lesson: /roadmap-sh/fundamental-it-skills/02-file-management-and-troubleshooting/03-troubleshooting-methodology
       - title: "Common Commands"
         titleTh: "คำสั่งที่ใช้บ่อย"
   - id: networking

@@ -64,13 +64,15 @@
 | | 4 Installing and Configuring Linux Operating Systems | ✅ เสร็จ (สื่อใหม่ 3: linux-mounts, terminal-sim, ufw-lockout + ใช้ layer-stack/compare-cards/step-diagram) ทดลองให้ haiku อ่านต้นฉบับ → `notes/lesson-04.md` ได้ผลดี ครบ |
 | | 5 Navigating Operating Systems Using GUI and CLI | ✅ เสร็จ (สื่อใหม่ 1: path-navigator + terminal-sim 3 ชุด, step-diagram 2, compare-cards, layer-stack, reveal 6) โน้ตต้นฉบับ `notes/lesson-05.md` · **รอผู้ใช้ตรวจ** · `terminal-sim` รองรับ `⧵` แทน `\` แล้ว |
 | 2 File Management and Troubleshooting | 1 Performing CRUD Operations on Files in Windows and Linux | ✅ เสร็จ (สื่อใหม่ 3: fs-ops-lab, redirect-lab, crud-map + terminal-sim 5 ชุด, step-diagram, compare-cards, reveal 7) โน้ต `notes/lesson-06.md` (โน้ต Haiku มีข้อผิดพลาดหลายจุด เช่น `-Backup` ที่ไม่มีจริง ตรวจและเขียนแก้ในบทแล้ว) · **รอผู้ใช้ตรวจ** |
-| | 2 Understanding File and Directory Permissions | ⏭️ **บทถัดไป** (ยังต้องขออนุญาตเปิดอ่านจาก roadmap.sh) |
-| | 3 OS-Independent Troubleshooting Methodology / 4 Windows Troubleshooting Commands / 5 Linux Troubleshooting Commands | ⬜ (อยู่ใน `planned` แล้ว) |
+| | 2 Understanding File and Directory Permissions | ✅ เสร็จ (สื่อใหม่ 4: perm-calc, umask-lab, perm-trace, acl-eval + terminal-sim 4, step-diagram, compare-cards, reveal 9) โน้ตจาก Gemini `notes/lesson-07.md` · **รอผู้ใช้ตรวจ** |
+| | 3 OS-Independent Troubleshooting Methodology | ✅ เสร็จ (สื่อใหม่ 2: trouble-loop, fault-finder + terminal-sim 2, step-diagram, compare-cards 2, reveal 8) โน้ตจาก Gemini `notes/lesson-08.md` · **รอผู้ใช้ตรวจ** |
+| | 4 Windows Troubleshooting Commands (โน้ต `notes/lesson-09.md`) / 5 Linux Troubleshooting Commands (โน้ต `notes/lesson-10.md`) | ⏭️ **บทถัดไป** บท 9 โน้ตพร้อม ⚠️ Self-check ของ Gemini บอกบล็อกโค้ด 17 และ 23 บล็อก แต่ในไฟล์มี 11 และ 17 บล็อก ควรตรวจว่าคำสั่งหายหรือไม่ก่อนเขียน |
 | 3 Core Computer Networking | ⬜ | ⬜ |
 | 4 Advanced Network Configuration and Analysis | ⬜ | ⬜ |
 | 5 Identity, Access, and Basic Security | ⬜ | ⬜ |
 
 บทถัดๆ ไปทำตาม "มาตรฐานการเขียนบทเรียน" ใน [CLAUDE.md](CLAUDE.md) ข้อ 1–8
+ทางเลือกอ่านต้นฉบับ: ให้ Gemini ทำโน้ตตาม `notes/gemini-reader.md` (ไฟล์ local ไม่ขึ้น repo มีรายการ 25 บท กฎห้ามกดปุ่ม และรูปแบบโน้ต) แล้วให้ Claude เขียนบทต่อจาก `notes/lesson-NN.md`
 เมื่อเปิดอ่านโมดูลใหม่ แล้วรู้ชื่อบทย่อย → เพิ่มชื่อที่ `planned` ใน `_module.yml` ของโมดูลนั้น
 
 ## 🗺️ Roadmap (แผนที่ตำแหน่งงาน)
