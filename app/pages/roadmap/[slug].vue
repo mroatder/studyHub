@@ -1,5 +1,7 @@
 <script setup lang="ts">
-// แผนที่การเรียน: กลุ่มหัวข้อแบบพับได้ หัวข้อที่มีบทเรียนแล้วกดเข้าไปเรียนได้
+// แผนที่การเรียนแบบแผนภาพ (เหมือน roadmap.sh): กดหัวข้อเพื่อดูรายละเอียด หัวข้อที่มีบทเรียนแล้วกดเข้าไปเรียนได้
+import type { MapTopic } from '~/components/RoadmapTopic.vue'
+
 const NuxtLinkC = resolveComponent('NuxtLink')
 const route = useRoute()
 const slug = route.params.slug as string
@@ -10,21 +12,20 @@ if (!data.value) throw createError({ statusCode: 404, statusMessage: 'ไม่�
 useHead({ title: `${data.value.map.titleTh} · Stackup` })
 
 const onlyReady = ref(false)
-const open = ref<Set<string>>(new Set(data.value.groups.filter((g) => g.ready > 0).map((g) => g.id)))
-function toggle(id: string) {
-  const next = new Set(open.value)
-  next.has(id) ? next.delete(id) : next.add(id)
-  open.value = next
-}
-const allOpen = computed(() => open.value.size === data.value!.groups.length)
-function toggleAll() {
-  open.value = allOpen.value ? new Set() : new Set(data.value!.groups.map((g) => g.id))
-}
+const levelNames: Record<number, string> = { 1: 'พื้นฐาน', 2: 'แกนหลัก', 3: 'เสริม/เฉพาะทาง' }
+const level = ref(0) // 0 = ทุกระดับ
+const picked = ref<MapTopic | null>(null)
 const pct = (a: number, b: number) => (b ? Math.round((a / b) * 100) : 0)
+
+function onKey(e: KeyboardEvent) {
+  if (e.key === 'Escape') picked.value = null
+}
+onMounted(() => window.addEventListener('keydown', onKey))
+onBeforeUnmount(() => window.removeEventListener('keydown', onKey))
 </script>
 
 <template>
-  <main v-if="data" class="mx-auto max-w-5xl px-4 py-10">
+  <main v-if="data" class="mx-auto max-w-6xl px-4 py-10">
     <NuxtLink to="/roadmap" class="text-sm text-mute transition hover:text-ink">← แผนที่ทั้งหมด</NuxtLink>
     <p class="mt-4 text-xs font-medium uppercase tracking-wide text-mute">{{ data.map.role ?? 'Roadmap' }}</p>
     <h1 class="mt-1 text-3xl font-bold">{{ data.map.titleTh }}</h1>
@@ -50,56 +51,80 @@ const pct = (a: number, b: number) => (b ? Math.round((a / b) * 100) : 0)
     </div>
 
     <div class="mt-4 flex flex-wrap items-center gap-2 text-sm">
-      <button type="button" class="rounded-md border border-line px-3 py-1.5 transition hover:border-ink" @click="toggleAll">
-        {{ allOpen ? 'ย่อทุกกลุ่ม' : 'ขยายทุกกลุ่ม' }}
-      </button>
       <label class="flex cursor-pointer items-center gap-2 rounded-md border border-line px-3 py-1.5 transition hover:border-ink">
         <input v-model="onlyReady" type="checkbox" class="accent-[var(--ink)]" />
-        เฉพาะหัวข้อที่มีบทเรียน
+        เน้นหัวข้อที่มีบทเรียน
       </label>
+      <div class="flex flex-wrap gap-1.5" role="group" aria-label="กรองตามระดับ">
+        <button
+          v-for="n in [0, 1, 2, 3]"
+          :key="n"
+          type="button"
+          class="rounded-md border px-3 py-1.5 transition"
+          :class="level === n ? 'border-ink bg-ink text-paper' : 'border-line hover:border-ink'"
+          :aria-pressed="level === n"
+          @click="level = n"
+        >{{ n ? levelNames[n] : 'ทุกระดับ' }}</button>
+      </div>
     </div>
 
-    <ol class="mt-6 space-y-3">
-      <li v-for="(g, gi) in data.groups" :key="g.id" class="rounded-xl border border-line">
-        <button type="button" class="flex w-full items-start gap-3 p-4 text-left" :aria-expanded="open.has(g.id)" @click="toggle(g.id)">
-          <span
-            class="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-full border text-sm font-medium"
-            :class="g.ready ? 'border-ink bg-ink text-paper' : 'border-line text-mute'"
-          >{{ gi + 1 }}</span>
-          <span class="min-w-0 flex-1">
-            <span class="block font-semibold">{{ g.titleTh }}</span>
-            <span class="block text-sm text-mute">{{ g.title }}</span>
-            <span v-if="g.summary" class="mt-1 block text-sm leading-6 text-ink/70">{{ g.summary }}</span>
-            <span class="mt-2 flex items-center gap-2 text-xs text-mute">
-              <span class="h-1.5 w-24 overflow-hidden rounded-full bg-line">
-                <span class="block h-full rounded-full bg-ink" :style="{ width: `${pct(g.ready, g.topics.length)}%` }" />
-              </span>
-              {{ g.ready }} / {{ g.topics.length }} หัวข้อมีบทเรียน
-            </span>
-          </span>
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mt-1 shrink-0 text-mute transition-transform motion-reduce:transition-none" :class="open.has(g.id) ? 'rotate-90' : ''" aria-hidden="true"><path d="M9 6l6 6-6 6" /></svg>
-        </button>
+    <ul class="mt-4 flex flex-wrap items-center gap-x-5 gap-y-1 text-xs text-mute" aria-label="คำอธิบายสัญลักษณ์">
+      <li class="flex items-center gap-1.5"><span class="inline-block h-3 w-5 rounded-sm border-2 border-ink bg-ink" />มีบทเรียนแล้ว</li>
+      <li class="flex items-center gap-1.5"><span class="inline-block h-3 w-5 rounded-sm border-2 border-ink bg-paper" />ยังไม่มีบทเรียน</li>
+      <li class="flex items-center gap-1.5"><span class="inline-block w-5 border-t-2 border-dotted border-mute" />เส้นประ = หัวข้อย่อยในกลุ่ม</li>
+      <li>กดที่หัวข้อเพื่อดูรายละเอียด</li>
+    </ul>
 
-        <div v-show="open.has(g.id)" class="border-t border-line px-4 pb-4 pt-3">
-          <NuxtLink v-if="g.course" :to="g.course" class="mb-3 inline-block rounded-md border border-ink px-3 py-1 text-sm transition hover:bg-ink hover:text-paper">เรียนคอร์สนี้ →</NuxtLink>
-          <ul class="ml-3 space-y-3 border-l border-line pl-5">
-            <template v-for="t in g.topics" :key="t.title">
-              <li v-if="!onlyReady || t.ready" class="relative">
-                <span class="absolute -left-[1.6rem] top-2 h-2.5 w-2.5 rounded-full border-2" :class="t.ready ? 'border-ink bg-ink' : 'border-mute bg-paper'" />
-                <component :is="t.ready ? NuxtLinkC : 'div'" :to="t.ready ? t.lesson : undefined" class="block" :class="t.ready ? 'group' : ''">
-                  <span class="block leading-6" :class="t.ready ? 'font-medium group-hover:underline group-hover:underline-offset-4' : 'text-ink/80'">{{ t.titleTh }}</span>
-                  <span class="block text-xs text-mute">
-                    {{ t.title }}<template v-if="t.ready"> · มีบทเรียนแล้ว ↗</template><template v-else> · เร็วๆ นี้</template>
-                  </span>
-                </component>
-                <ul v-if="t.children?.length" class="mt-2 flex flex-wrap gap-1.5">
-                  <li v-for="c in t.children" :key="c" class="rounded border border-line px-1.5 py-0.5 text-[11px] text-mute">{{ c }}</li>
-                </ul>
-              </li>
-            </template>
+    <div class="mt-8">
+      <RoadmapMap :groups="data.groups" :selected="picked?.title" :level="level" :only-ready="onlyReady" @select="picked = $event" />
+    </div>
+
+    <!-- แผงรายละเอียด: ขอบล่างบนมือถือ, ขอบขวาบนจอใหญ่ -->
+    <Transition name="panel">
+      <aside
+        v-if="picked"
+        class="fixed inset-x-0 bottom-0 z-40 max-h-[70vh] overflow-y-auto border-t-2 border-ink bg-paper p-5 shadow-2xl lg:inset-y-0 lg:left-auto lg:right-0 lg:max-h-none lg:w-96 lg:border-l-2 lg:border-t-0"
+        role="dialog"
+        aria-label="รายละเอียดหัวข้อ"
+      >
+        <div class="flex items-start justify-between gap-3">
+          <div>
+            <h2 class="text-lg font-semibold leading-7">{{ picked.titleTh }}</h2>
+            <p class="text-sm text-mute">{{ picked.title }}</p>
+          </div>
+          <button type="button" class="shrink-0 rounded-md border border-line px-2.5 py-1 text-sm transition hover:border-ink" aria-label="ปิดแผงรายละเอียด" @click="picked = null">ปิด ✕</button>
+        </div>
+        <p v-if="picked.level" class="mt-3 inline-block rounded border border-line px-2 py-0.5 text-xs text-mute">ระดับ: {{ levelNames[picked.level] }}</p>
+        <p v-if="picked.note" class="mt-3 leading-7 text-ink/80">{{ picked.note }}</p>
+        <div v-if="picked.children?.length" class="mt-4">
+          <p class="text-xs font-medium text-mute">หัวข้อย่อย</p>
+          <ul class="mt-1.5 flex flex-wrap gap-1.5">
+            <li v-for="c in picked.children" :key="c" class="rounded border border-line px-2 py-0.5 text-xs">{{ c }}</li>
           </ul>
         </div>
-      </li>
-    </ol>
+        <div class="mt-5">
+          <component :is="NuxtLinkC" v-if="picked.ready && picked.lesson" :to="picked.lesson" class="inline-block rounded-md bg-ink px-4 py-2 text-sm font-medium text-paper transition hover:opacity-80">ไปเรียนบทนี้ →</component>
+          <p v-else class="text-sm text-mute">ยังไม่มีบทเรียนของหัวข้อนี้ในเว็บ (เร็วๆ นี้)</p>
+        </div>
+      </aside>
+    </Transition>
   </main>
 </template>
+
+<style scoped>
+.panel-enter-active,
+.panel-leave-active {
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+.panel-enter-from,
+.panel-leave-to {
+  transform: translateY(1rem);
+  opacity: 0;
+}
+@media (prefers-reduced-motion: reduce) {
+  .panel-enter-active,
+  .panel-leave-active {
+    transition: none;
+  }
+}
+</style>

@@ -62,6 +62,8 @@ export default defineContentConfig({
                 title: z.string(),
                 titleTh: z.string(),
                 lesson: z.string().optional(),
+                note: z.string().optional(),
+                level: z.number().min(1).max(3).optional(),
                 children: z.array(z.string()).optional(),
               }),
             ),

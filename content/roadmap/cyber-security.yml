@@ -2,7 +2,7 @@
 # เพิ่มตำแหน่งใหม่: คัดลอกไฟล์นี้เป็น content/roadmap/<slug>.yml แล้วแก้ข้อมูล
 # - order: เลขลำดับในหน้ารวม (น้อยขึ้นก่อน)
 # - groups[].topics[].lesson: path ของบทเรียนในเว็บ (ใส่เมื่อเขียนบทแล้ว หัวข้อจะกดเข้าได้เอง)
-# - groups[].course: path ของคอร์สที่เกี่ยวข้อง (ไม่ใส่ก็ได้)
+# (ไม่ใช้ course ที่ระดับกลุ่มแล้ว: เข้าบทเรียนจากเมนูหลัก)
 # หัวข้อเดียวกันใช้บทเรียนเดียวกันซ้ำในหลาย roadmap ได้ แค่ใส่ lesson ชี้ path เดียวกัน
 order: 1
 role: "สายความปลอดภัย"
@@ -16,22 +16,30 @@ groups:
   - id: it-basics
     title: "Fundamental IT Skills"
     titleTh: "ทักษะ IT พื้นฐาน"
-    summary: "รากฐานที่ทุกสายงาน IT ต้องมี ก่อนเรียนความปลอดภัย"
     course: "/roadmap-sh/fundamental-it-skills"
+    summary: "รากฐานที่ทุกสายงาน IT ต้องมี ก่อนเรียนความปลอดภัย"
     topics:
       - title: "Computer Hardware Components"
+        level: 1
+        note: "รู้ว่าเครื่องประกอบด้วยอะไร ทำงานร่วมกันอย่างไร เพราะการวิเคราะห์ภัยคุกคามต้องเริ่มจากรู้ว่าอะไรอยู่ในเครื่อง"
         titleTh: "ชิ้นส่วนฮาร์ดแวร์คอมพิวเตอร์"
-        lesson: "/roadmap-sh/fundamental-it-skills/01-computer-hardware-and-os/01-understanding-hardware-components"
       - title: "Connection Types and their function"
+        level: 1
+        note: "วิธีที่อุปกรณ์เชื่อมต่อกัน ทั้งแบบสายและไร้สายระยะสั้น แต่ละแบบมีจุดอ่อนของตัวเอง"
         titleTh: "ชนิดการเชื่อมต่อและหน้าที่"
-        lesson: "/roadmap-sh/fundamental-it-skills/01-computer-hardware-and-os/02-connection-types-and-functions"
         children: ["NFC", "Bluetooth", "WiFi", "Infrared"]
       - title: "OS-Independent Troubleshooting"
+        level: 1
+        note: "วิธีคิดแก้ปัญหาเป็นขั้นตอนที่ใช้ได้กับทุกระบบ ไม่ผูกกับคำสั่งของระบบใดระบบหนึ่ง"
         titleTh: "การแก้ปัญหาที่ไม่ขึ้นกับระบบปฏิบัติการ"
       - title: "Understand Basics of Popular Suites"
+        level: 3
+        note: "รู้จักชุดโปรแกรมสำนักงานและบริการคลาวด์ที่องค์กรใช้ทั่วไป เพราะมักเป็นเป้าหมายของผู้โจมตี"
         titleTh: "พื้นฐานชุดโปรแกรมยอดนิยม"
         children: ["MS Office Suite", "Google Suite", "iCloud"]
       - title: "Basics of Computer Networking"
+        level: 1
+        note: "ภาพรวมการสื่อสารระหว่างเครื่อง ก่อนลงลึกในกลุ่ม Networking"
         titleTh: "พื้นฐานเครือข่ายคอมพิวเตอร์"
   - id: operating-systems
     title: "Operating Systems"
@@ -39,28 +47,41 @@ groups:
     summary: "Windows, Linux และ macOS: ติดตั้ง ใช้งาน จัดการสิทธิ์และไฟล์"
     topics:
       - title: "Windows, Linux, MacOS"
+        level: 1
+        note: "ระบบปฏิบัติการหลักสามตระกูลที่ต้องใช้งานได้ทั้งหมดในงานด้านความปลอดภัย"
         titleTh: "ระบบปฏิบัติการหลัก 3 ตระกูล"
         children: ["Windows", "Linux", "MacOS"]
       - title: "Installation and Configuration"
+        level: 1
+        note: "ติดตั้งและตั้งค่าระบบเอง เพราะการเสริมความแข็งแรงเริ่มจากการตั้งค่าที่ถูกต้อง"
         titleTh: "การติดตั้งและตั้งค่า"
-        lesson: /roadmap-sh/fundamental-it-skills/01-computer-hardware-and-os/03-installing-windows
       - title: "Different Versions and Differences"
+        level: 2
+        note: "ระบบรุ่นต่างกันมีฟีเจอร์ความปลอดภัยและช่องโหว่ต่างกัน ต้องรู้ว่ากำลังจัดการรุ่นไหน"
         titleTh: "เวอร์ชันต่างๆ และความแตกต่าง"
       - title: "Navigating using GUI and CLI"
+        level: 1
+        note: "ใช้งานทั้งหน้าต่างกราฟิกและบรรทัดคำสั่ง เพราะงานเซิร์ฟเวอร์ส่วนใหญ่ทำผ่านบรรทัดคำสั่ง"
         titleTh: "ใช้งานผ่านหน้าจอกราฟิกและบรรทัดคำสั่ง"
-        lesson: /roadmap-sh/fundamental-it-skills/01-computer-hardware-and-os/05-navigating-gui-and-cli
       - title: "Understand Permissions"
+        level: 1
+        note: "ใครทำอะไรกับไฟล์และทรัพยากรได้ ฐานของ least privilege"
         titleTh: "สิทธิ์การเข้าถึง"
-        lesson: /roadmap-sh/fundamental-it-skills/02-file-management-and-troubleshooting/02-file-and-directory-permissions
       - title: "Installing Software and Applications"
+        level: 2
+        note: "วิธีติดตั้งและจัดการซอฟต์แวร์อย่างปลอดภัย รวมถึงการตรวจแหล่งที่มา"
         titleTh: "ติดตั้งซอฟต์แวร์และแอป"
       - title: "Performing CRUD on Files"
+        level: 1
+        note: "สร้าง อ่าน แก้ ลบไฟล์ด้วยคำสั่ง ทักษะพื้นฐานของการทำงานกับระบบ"
         titleTh: "สร้าง อ่าน แก้ไข ลบไฟล์"
-        lesson: /roadmap-sh/fundamental-it-skills/02-file-management-and-troubleshooting/01-crud-operations-on-files
       - title: "Troubleshooting"
+        level: 1
+        note: "ไล่หาสาเหตุเมื่อระบบผิดปกติ ทักษะที่ใช้ทั้งงานซัพพอร์ตและสืบสวนเหตุการณ์"
         titleTh: "การแก้ไขปัญหา"
-        lesson: /roadmap-sh/fundamental-it-skills/02-file-management-and-troubleshooting/03-troubleshooting-methodology
       - title: "Common Commands"
+        level: 1
+        note: "ชุดคำสั่งที่ใช้บ่อยของแต่ละระบบ ใช้ตรวจสถานะและเก็บหลักฐานเบื้องต้น"
         titleTh: "คำสั่งที่ใช้บ่อย"
   - id: networking
     title: "Networking Knowledge"
@@ -68,50 +89,71 @@ groups:
     summary: "หัวใจของงาน Security: ถ้าไม่เข้าใจเครือข่าย จะวิเคราะห์การโจมตีไม่ได้"
     topics:
       - title: "Understand the OSI Model"
+        level: 1
+        note: "แบบจำลอง 7 ชั้นสำหรับคิดว่าปัญหาและการโจมตีเกิดที่ชั้นไหน"
         titleTh: "โมเดล OSI"
-        lesson: /roadmap-sh/fundamental-it-skills/03-core-computer-networking/01-osi-model-and-network-layers
       - title: "Common Protocols and their Uses"
+        level: 1
+        note: "โปรโตคอลที่ใช้ทุกวัน (HTTP, DNS, DHCP ฯลฯ) ว่าทำหน้าที่อะไร"
         titleTh: "โปรโตคอลที่พบบ่อยและการใช้งาน"
-        lesson: /roadmap-sh/fundamental-it-skills/03-core-computer-networking/02-common-network-protocols
       - title: "Common Ports and their Uses"
+        level: 1
+        note: "พอร์ตมาตรฐานกับบริการที่ฟังอยู่ ใช้อ่านผลสแกนและตั้งไฟร์วอลล์"
         titleTh: "พอร์ตที่พบบ่อยและการใช้งาน"
-        lesson: /roadmap-sh/fundamental-it-skills/03-core-computer-networking/03-common-ports-and-services
       - title: "SSL and TLS Basics"
+        level: 2
+        note: "การเข้ารหัสและยืนยันตัวตนของการสื่อสารบนเว็บ รวมถึงใบรับรองดิจิทัล"
         titleTh: "พื้นฐาน SSL และ TLS"
       - title: "Basics of NAS and SAN"
+        level: 3
+        note: "ที่เก็บข้อมูลขององค์กรแบบต่อผ่านเครือข่ายสองชนิด และความต่างด้านการเข้าถึง"
         titleTh: "พื้นฐาน NAS และ SAN"
       - title: "Basics of Subnetting"
+        level: 1
+        note: "แบ่งเครือข่ายด้วยซับเน็ตมาสก์และ CIDR พื้นฐานของการออกแบบและแบ่งส่วนเครือข่าย"
         titleTh: "พื้นฐานการแบ่งซับเน็ต"
-        lesson: /roadmap-sh/fundamental-it-skills/03-core-computer-networking/05-subnetting-subnet-masks-and-cidr
       - title: "Public vs Private IP Addresses"
+        level: 1
+        note: "ที่อยู่ที่เห็นจากอินเทอร์เน็ตกับที่อยู่ภายใน และการแปลงด้วย NAT"
         titleTh: "IP สาธารณะและ IP ส่วนตัว"
-        lesson: /roadmap-sh/fundamental-it-skills/03-core-computer-networking/04-public-and-private-ip-addresses
       - title: "IP Terminology"
+        level: 1
+        note: "ศัพท์ IP ที่ต้องรู้: localhost, loopback, CIDR, subnet mask, default gateway"
         titleTh: "ศัพท์เกี่ยวกับ IP"
         children: ["localhost", "loopback", "CIDR", "subnet mask", "default gateway"]
-        lesson: /roadmap-sh/fundamental-it-skills/04-advanced-network-configuration-and-analysis/01-localhost-loopback-and-default-gateways
       - title: "Understand the Terminology"
+        level: 1
+        note: "ศัพท์อุปกรณ์และบริการเครือข่าย (VLAN, DMZ, DNS, NAT, VPN, LAN/WAN ฯลฯ)"
         titleTh: "ศัพท์เครือข่ายสำคัญ"
         children: ["VLAN", "DMZ", "ARP", "VM", "DHCP", "DNS", "NAT", "IP", "Router", "Switch", "VPN", "MAN", "LAN", "WAN", "WLAN"]
-        lesson: /roadmap-sh/fundamental-it-skills/04-advanced-network-configuration-and-analysis/03-routing-switching-vlans-and-dmz
       - title: "Network Services"
+        level: 2
+        note: "บริการที่ทำให้เครือข่ายใช้งานได้ เช่น DHCP, DNS, NTP, IPAM"
         titleTh: "บริการเครือข่ายพื้นฐาน"
         children: ["DHCP", "DNS", "NTP", "IPAM"]
-        lesson: /roadmap-sh/fundamental-it-skills/04-advanced-network-configuration-and-analysis/02-dhcp-dns-and-nat
       - title: "Network Topologies"
+        level: 3
+        note: "รูปแบบการวางเครือข่าย (star, ring, mesh, bus) และผลต่อความทนทาน"
         titleTh: "รูปแบบการเชื่อมต่อเครือข่าย"
         children: ["Star", "Ring", "Mesh", "Bus"]
       - title: "Network Protocols"
+        level: 2
+        note: "โปรโตคอลสำหรับเข้าควบคุมระยะไกลและโอนไฟล์ (SSH, RDP, FTP/SFTP) และเว็บ"
         titleTh: "โปรโตคอลเครือข่าย"
         children: ["SSH", "RDP", "FTP", "SFTP", "HTTP / HTTPS", "SSL / TLS"]
       - title: "Basics of Virtualization"
+        level: 1
+        note: "รันหลายระบบบนเครื่องเดียว ใช้สร้างห้องแล็บฝึกทุกเรื่องที่เหลือ"
         titleTh: "พื้นฐานเวอร์ชวลไลเซชัน"
         children: ["Hypervisor", "VM", "GuestOS", "HostOS", "VMWare", "VirtualBox", "ESXi", "Proxmox"]
       - title: "Troubleshooting Tools"
+        level: 1
+        note: "เครื่องมือวินิจฉัยเครือข่าย (ping, dig, nmap, tcpdump ฯลฯ) ที่ใช้ซ้ำในงานด้านความปลอดภัย"
         titleTh: "เครื่องมือแก้ปัญหาเครือข่าย"
-        lesson: /roadmap-sh/fundamental-it-skills/04-advanced-network-configuration-and-analysis/04-ping-traceroute-and-nslookup
         children: ["ping", "ipconfig", "tracert", "nslookup", "dig", "arp", "netstat", "route", "nmap", "tcpdump", "iptables", "Packet Sniffers", "Port Scanners", "Protocol Analyzers"]
       - title: "Authentication Methodologies"
+        level: 2
+        note: "วิธียืนยันตัวตนที่องค์กรใช้จริง เช่น Kerberos, LDAP, SSO, RADIUS, ใบรับรอง"
         titleTh: "วิธียืนยันตัวตน"
         children: ["Kerberos", "LDAP", "SSO", "RADIUS", "Certificates", "Local Auth"]
   - id: security-skills
@@ -120,117 +162,209 @@ groups:
     summary: "แนวคิด เครื่องมือ การโจมตี และการป้องกันที่ต้องรู้ในงาน Security"
     topics:
       - title: "Understand CIA Triad"
+        level: 1
+        note: "สามเป้าหมายของความปลอดภัย: ความลับ ความถูกต้อง ความพร้อมใช้งาน"
         titleTh: "หลัก CIA Triad"
       - title: "Authentication vs Authorization"
+        level: 1
+        note: "ยืนยันว่าคุณคือใคร ต่างจากตัดสินว่าคุณทำอะไรได้บ้าง"
         titleTh: "การยืนยันตัวตน vs การให้สิทธิ์"
       - title: "MFA & 2FA"
+        level: 1
+        note: "ใช้มากกว่าหนึ่งปัจจัยยืนยันตัวตน ลดความเสียหายเมื่อรหัสผ่านรั่ว"
         titleTh: "การยืนยันตัวตนหลายปัจจัย"
       - title: "Understand Concept of Defense in Depth"
+        level: 2
+        note: "ซ้อนมาตรการหลายชั้น ไม่พึ่งชั้นใดชั้นเดียว"
         titleTh: "การป้องกันหลายชั้น"
       - title: "Core Concepts of Zero Trust"
+        level: 2
+        note: "ไม่เชื่อใจอัตโนมัติแม้อยู่ในเครือข่ายภายใน ตรวจทุกคำขอ"
         titleTh: "แนวคิด Zero Trust"
       - title: "Perimeter vs DMZ vs Segmentation"
+        level: 2
+        note: "ขอบเครือข่าย โซนกันชน และการแบ่งส่วน เพื่อจำกัดความเสียหายเมื่อถูกเจาะ"
         titleTh: "ขอบเขตเครือข่าย DMZ และการแบ่งส่วน"
-        lesson: /roadmap-sh/fundamental-it-skills/04-advanced-network-configuration-and-analysis/03-routing-switching-vlans-and-dmz
       - title: "Understand the Definition of Risk"
+        level: 2
+        note: "ความเสี่ยง = โอกาส x ผลกระทบ ใช้จัดลำดับว่าจะแก้อะไรก่อน"
         titleTh: "ความหมายของความเสี่ยง"
       - title: "Understand Backups and Resiliency"
+        level: 2
+        note: "สำรองและกู้คืนข้อมูล ป้องกันแรนซัมแวร์และความเสียหายอื่น"
         titleTh: "การสำรองข้อมูลและความทนทานของระบบ"
       - title: "Operating System Hardening"
+        level: 2
+        note: "ลดพื้นผิวโจมตีของระบบปฏิบัติการด้วยการปิดสิ่งที่ไม่ใช้และตั้งค่าให้รัดกุม"
         titleTh: "การเสริมความแข็งแรงให้ระบบปฏิบัติการ"
       - title: "Understand Hardening Concepts"
+        level: 2
+        note: "เทคนิคเสริมความแข็งแรง เช่น ปิดพอร์ต นโยบายกลุ่ม ACL การแพตช์ jump server"
         titleTh: "แนวคิดการเสริมความปลอดภัย"
         children: ["MAC-based", "NAC-based", "Port Blocking", "Group Policy", "ACLs", "Sinkholes", "Patching", "Jump Server", "Endpoint Security"]
       - title: "Basics of Cryptography"
+        level: 2
+        note: "การแฮช การใส่ salt การแลกกุญแจ PKI และกุญแจสาธารณะ-ส่วนตัว"
         titleTh: "พื้นฐานการเข้ารหัสลับ"
         children: ["Salting", "Hashing", "Key Exchange", "PKI", "Private vs Public Keys", "Obfuscation"]
       - title: "Secure vs Unsecure Protocols"
+        level: 2
+        note: "คู่โปรโตคอลแบบไม่เข้ารหัสกับแบบเข้ารหัส (FTP/SFTP, HTTP/HTTPS) และเทคโนโลยีเสริม"
         titleTh: "โปรโตคอลที่ปลอดภัย vs ไม่ปลอดภัย"
         children: ["FTP vs SFTP", "SSL vs TLS", "IPSEC", "DNSSEC", "LDAPS", "SRTP", "S/MIME"]
       - title: "Wireless Security"
+        level: 2
+        note: "ความปลอดภัยของ Wi-Fi: WEP/WPA/WPA2/WPA3, WPS, EAP และการโจมตีบนเครือข่ายไร้สาย"
         titleTh: "ความปลอดภัยเครือข่ายไร้สาย"
         children: ["EAP vs PEAP", "WPS", "WPA vs WPA2 vs WPA3 vs WEP"]
       - title: "Understand the following Terms"
+        level: 2
+        note: "เครื่องมือป้องกันที่พบทั่วไป: ไฟร์วอลล์, antivirus, EDR, DLP, IDS/IPS, sandbox"
         titleTh: "เครื่องมือป้องกันที่ควรรู้จัก"
         children: ["Antivirus", "Antimalware", "EDR", "DLP", "ACL", "Firewall & Nextgen Firewall", "HIPS", "NIDS", "NIPS", "Host Based Firewall", "Sandboxing"]
       - title: "Basics of IDS and IPS"
+        level: 2
+        note: "ระบบตรวจจับและป้องกันการบุกรุก ต่างกันที่แค่แจ้งเตือนหรือสกัดได้เลย"
         titleTh: "พื้นฐาน IDS และ IPS"
       - title: "Honeypots"
+        level: 3
+        note: "เป้าล่อที่ตั้งไว้ให้ถูกโจมตีเพื่อศึกษาพฤติกรรมของผู้บุกรุก"
         titleTh: "กับดักล่อผู้โจมตี (Honeypot)"
       - title: "Understand Concept of Isolation"
+        level: 2
+        note: "แยกระบบหรือโปรเซสออกจากกันเพื่อจำกัดความเสียหาย เช่น sandbox, VM"
         titleTh: "แนวคิดการแยกระบบ (Isolation)"
       - title: "Learn how Malware works and Types"
+        level: 2
+        note: "มัลแวร์ชนิดต่างๆ ทำงานและแพร่อย่างไร"
         titleTh: "มัลแวร์ทำงานอย่างไรและมีกี่ชนิด"
       - title: "Privilege Escalation"
+        level: 2
+        note: "ผู้โจมตีเพิ่มสิทธิ์จากบัญชีธรรมดาเป็นผู้ดูแลได้อย่างไร"
         titleTh: "การยกระดับสิทธิ์"
       - title: "Web Based Attacks and OWASP10"
+        level: 2
+        note: "ช่องโหว่เว็บที่พบบ่อยตามรายการ OWASP Top 10"
         titleTh: "การโจมตีเว็บและ OWASP Top 10"
       - title: "Attack Types and Differences"
+        level: 2
+        note: "ฟิชชิง วิศวกรรมสังคม และการโจมตีที่หลอกคนมากกว่าหลอกเครื่อง"
         titleTh: "ประเภทการโจมตีและความแตกต่าง"
         children: ["Phishing", "Whaling", "Smishing", "Spam vs Spim", "Shoulder Surfing", "Dumpster Diving", "Tailgating", "Social Engineering", "Reconnaissance", "Impersonation", "Watering Hole Attack", "Drive by Attack", "Typo Squatting", "Brute Force vs Password Spray"]
       - title: "Common Attacks"
+        level: 2
+        note: "การโจมตีที่เจอบ่อย: DoS, MITM, spoofing, XSS, SQL injection, buffer overflow ฯลฯ"
         titleTh: "การโจมตีที่พบบ่อย"
         children: ["DoS vs DDoS", "MITM", "Spoofing", "Evil Twin", "DNS Poisoning", "Deauth Attack", "VLAN Hopping", "Rogue Access Point", "Buffer Overflow", "Memory Leak", "XSS", "SQL Injection", "CSRF", "Replay Attack", "Pass the Hash", "Directory Traversal"]
       - title: "Understand Threat Classification"
+        level: 2
+        note: "จัดประเภทภัยคุกคาม: zero day, known/unknown, APT"
         titleTh: "การจัดประเภทภัยคุกคาม"
         children: ["Zero Day", "Known vs Unknown", "APT"]
       - title: "Understand Common Hacking Tools"
+        level: 2
+        note: "เครื่องมือที่ทั้งผู้โจมตีและผู้ทดสอบใช้ ต้องรู้ว่ามันทำอะไรและทิ้งร่องรอยแบบไหน"
         titleTh: "เครื่องมือแฮกที่พบบ่อย"
       - title: "Understand Common Exploit Frameworks"
+        level: 3
+        note: "ชุดเครื่องมือรวมโค้ดโจมตีสำหรับทดสอบเจาะระบบ"
         titleTh: "เฟรมเวิร์กสำหรับเอ็กซ์พลอยต์"
       - title: "Common Distros for hacking"
+        level: 3
+        note: "ลีนุกซ์ที่รวมเครื่องมือทดสอบเจาะระบบไว้พร้อมใช้ เช่น Kali, Parrot"
         titleTh: "ลินุกซ์สำหรับงานทดสอบเจาะระบบ"
         children: ["ParrotOS", "Kali Linux"]
       - title: "LOLBAS"
+        level: 3
+        note: "โปรแกรมที่มากับระบบซึ่งผู้โจมตีนำมาใช้ผิดวัตถุประสงค์เพื่อเลี่ยงการตรวจจับ"
         titleTh: "ใช้เครื่องมือในระบบเพื่อจุดประสงค์ที่ไม่ตั้งใจ"
       - title: "Penetration Testing Rules of Engagement"
+        level: 3
+        note: "กติกาก่อนทดสอบเจาะระบบ: ขอบเขต การอนุญาต และสิ่งที่ห้ามทำ"
         titleTh: "กฎการทดสอบเจาะระบบ"
       - title: "Blue / Red / Purple Teams"
+        level: 2
+        note: "ทีมป้องกัน ทีมโจมตีจำลอง และทีมที่ทำงานร่วมกันเพื่อพัฒนาการป้องกัน"
         titleTh: "ทีมสีน้ำเงิน แดง และม่วง"
       - title: "False Negative / False Positive"
+        level: 2
+        note: "ความผิดพลาดของระบบตรวจจับ ทั้งพลาดภัยจริงและแจ้งเตือนเกิน"
         titleTh: "ผลลบลวง / ผลบวกลวง"
         children: ["True Negative", "True Positive"]
       - title: "Understand Handshakes"
+        level: 2
+        note: "การจับมือเริ่มการเชื่อมต่อ (TCP, TLS) ที่ผู้โจมตีมักใช้ประโยชน์"
         titleTh: "กระบวนการจับมือ (Handshake)"
       - title: "Understand Frameworks"
+        level: 2
+        note: "กรอบคิดอธิบายพฤติกรรมผู้โจมตี เช่น ATT&CK, Kill Chain, Diamond Model"
         titleTh: "เฟรมเวิร์กด้านภัยคุกคาม"
         children: ["ATT&CK", "Kill Chain", "Diamond Model"]
       - title: "Cyber Kill Chain"
+        level: 2
+        note: "ขั้นตอนของการโจมตีตั้งแต่สอดแนมจนถึงบรรลุเป้าหมาย ใช้หาจุดตัดวงจร"
         titleTh: "ห่วงโซ่การโจมตี (Cyber Kill Chain)"
       - title: "Understand Common Standards"
+        level: 3
+        note: "มาตรฐานและกรอบความปลอดภัย: ISO, NIST, RMF, CIS, CSF"
         titleTh: "มาตรฐานที่ใช้บ่อย"
         children: ["ISO", "NIST", "RMF", "CIS", "CSF"]
       - title: "Roles of Compliance and Auditors"
+        level: 3
+        note: "งานตรวจสอบและปฏิบัติตามกฎระเบียบ และบทบาทของผู้ตรวจสอบ"
         titleTh: "บทบาทของฝ่ายกำกับดูแลและผู้ตรวจสอบ"
       - title: "SIEM and SOAR"
+        level: 2
+        note: "ระบบรวมศูนย์เก็บ log วิเคราะห์ และสั่งงานอัตโนมัติ เครื่องมือหลักของ SOC"
         titleTh: "ระบบรวมศูนย์ตรวจจับและตอบสนอง"
         children: ["SIEM", "SOAR"]
       - title: "Learn how to find and use these logs"
+        level: 2
+        note: "log ชนิดต่างๆ (event, syslog, netflow, firewall, packet capture) และการอ่านเพื่อหาร่องรอย"
         titleTh: "การค้นหาและอ่านล็อก"
         children: ["Event Logs", "syslogs", "netflow", "Packet Captures", "Firewall Logs"]
       - title: "Basics of Threat Intel, OSINT"
+        level: 3
+        note: "รวบรวมข้อมูลภัยคุกคามจากแหล่งเปิดเพื่อประเมินและเตรียมรับมือ"
         titleTh: "ข่าวกรองภัยคุกคามและ OSINT"
       - title: "Basics and Concepts of Threat Hunting"
+        level: 3
+        note: "ออกค้นหาผู้บุกรุกที่หลุดการตรวจจับอัตโนมัติ โดยตั้งสมมติฐานเอง"
         titleTh: "แนวคิดการล่าภัยคุกคาม"
       - title: "Basics of Vulnerability Management"
+        level: 2
+        note: "ค้นหา จัดลำดับ และแก้ช่องโหว่อย่างเป็นวงจรต่อเนื่อง"
         titleTh: "การบริหารช่องโหว่"
       - title: "Basics of Reverse Engineering"
+        level: 3
+        note: "ถอดการทำงานของโปรแกรมหรือมัลแวร์เพื่อเข้าใจพฤติกรรม"
         titleTh: "พื้นฐานวิศวกรรมย้อนกลับ"
       - title: "Understand Basics of Forensics"
+        level: 3
+        note: "เก็บและรักษาหลักฐานดิจิทัลโดยไม่ทำให้เสียหายหรือถูกโต้แย้ง"
         titleTh: "พื้นฐานนิติวิทยาศาสตร์ดิจิทัล"
       - title: "Understand the Incident Response Process"
+        level: 2
+        note: "ขั้นตอนรับมือเหตุการณ์: เตรียมตัว ระบุ จำกัด กำจัด กู้คืน และสรุปบทเรียน"
         titleTh: "กระบวนการรับมือเหตุการณ์"
         children: ["Preparation", "Identification", "Containment", "Eradication", "Recovery", "Lessons Learned"]
       - title: "Understand Concept of Runbooks"
+        level: 2
+        note: "คู่มือขั้นตอนมาตรฐานสำหรับรับมือเหตุการณ์แต่ละประเภท"
         titleTh: "คู่มือปฏิบัติการ (Runbook)"
       - title: "Tools for Incident Response and Discovery"
+        level: 2
+        note: "เครื่องมือที่ใช้ตอนสืบสวน (nmap, wireshark, grep, FTK Imager, autopsy ฯลฯ)"
         titleTh: "เครื่องมือรับมือเหตุการณ์"
-        lesson: /roadmap-sh/fundamental-it-skills/04-advanced-network-configuration-and-analysis/05-capturing-and-analyzing-packets-with-wireshark
         children: ["nmap", "tracert", "nslookup", "curl", "hping", "ping", "arp", "cat", "dd", "head", "grep", "tail", "dig", "ipconfig", "wireshark", "winhex", "memdump", "FTK Imager", "autopsy"]
       - title: "Understand Common Tools"
+        level: 3
+        note: "บริการสาธารณะตรวจไฟล์ ลิงก์ และโดเมนที่น่าสงสัย (VirusTotal, urlscan, WHOIS ฯลฯ)"
         titleTh: "เครื่องมือตรวจสอบไฟล์และเว็บ"
         children: ["VirusTotal", "Joe Sandbox", "any.run", "urlvoid", "urlscan", "WHOIS"]
       - title: "Understand Audience"
+        level: 3
+        note: "สื่อสารเรื่องความปลอดภัยให้ผู้บริหาร ฝ่ายกฎหมาย และฝ่ายบุคคลเข้าใจ"
         titleTh: "รู้จักผู้รับสาร"
         children: ["Stakeholders", "HR", "Legal", "Compliance", "Management"]
   - id: cloud
@@ -239,25 +373,43 @@ groups:
     summary: "ความปลอดภัยเมื่อระบบย้ายขึ้นคลาวด์"
     topics:
       - title: "Understand the Concept of Security in the Cloud"
+        level: 2
+        note: "ความรับผิดชอบด้านความปลอดภัยแบ่งกันระหว่างผู้ให้บริการและผู้ใช้อย่างไร"
         titleTh: "ความปลอดภัยบนคลาวด์"
       - title: "Basics and general flow of deploying in the cloud"
+        level: 3
+        note: "ขั้นตอนการนำระบบขึ้นคลาวด์ตั้งแต่สร้างทรัพยากรจนใช้งาน"
         titleTh: "พื้นฐานและขั้นตอนการนำระบบขึ้นคลาวด์"
       - title: "Cloud vs on-premises"
+        level: 2
+        note: "เทียบการวางระบบบนคลาวด์กับในองค์กรเอง ทั้งต้นทุน การควบคุม และความเสี่ยง"
         titleTh: "คลาวด์ต่างจากระบบในองค์กรอย่างไร"
       - title: "Infrastructure as Code"
+        level: 3
+        note: "กำหนดโครงสร้างพื้นฐานด้วยโค้ดเพื่อสร้างซ้ำได้และตรวจสอบได้"
         titleTh: "Infrastructure as Code"
       - title: "Serverless"
+        level: 3
+        note: "รันโค้ดโดยไม่ต้องดูแลเซิร์ฟเวอร์ และผลต่อพื้นผิวโจมตี"
         titleTh: "แนวคิด Serverless"
       - title: "Understand Cloud Services"
+        level: 2
+        note: "โมเดลบริการ SaaS, PaaS, IaaS และความรับผิดชอบที่ต่างกัน"
         titleTh: "รูปแบบบริการคลาวด์"
         children: ["SaaS", "PaaS", "IaaS"]
       - title: "Cloud Models"
+        level: 3
+        note: "คลาวด์ส่วนตัว สาธารณะ และไฮบริด"
         titleTh: "รูปแบบการใช้คลาวด์"
         children: ["Private", "Public", "Hybrid"]
       - title: "Common Cloud Environments"
+        level: 3
+        note: "ผู้ให้บริการหลัก (AWS, GCP, Azure) ที่ควรรู้จักอย่างน้อยหนึ่งราย"
         titleTh: "ผู้ให้บริการคลาวด์หลัก"
         children: ["AWS", "GCP", "Azure"]
       - title: "Common Cloud Storage"
+        level: 3
+        note: "บริการเก็บไฟล์บนคลาวด์ และการตั้งสิทธิ์ผิดที่ทำให้ข้อมูลรั่วบ่อย"
         titleTh: "บริการเก็บข้อมูลบนคลาวด์"
         children: ["S3", "Dropbox", "Box", "OneDrive", "Google Drive", "iCloud"]
   - id: programming
@@ -266,6 +418,8 @@ groups:
     summary: "ภาษาที่ใช้เขียนสคริปต์ เครื่องมือ และวิเคราะห์โค้ดในงาน Security"
     topics:
       - title: "Languages"
+        level: 2
+        note: "ภาษาสำหรับเขียนสคริปต์อัตโนมัติและอ่านโค้ดที่ตรวจสอบ เริ่มจาก Python และ Bash"
         titleTh: "ภาษาโปรแกรมที่ควรรู้"
         children: ["Python", "Go", "JavaScript", "C++", "Bash", "PowerShell"]
   - id: practice
@@ -274,14 +428,22 @@ groups:
     summary: "แพลตฟอร์มฝึกทักษะและใบรับรองที่คนในสายนี้นิยม"
     topics:
       - title: "CTFs (Capture the Flag)"
+        level: 2
+        note: "โจทย์ฝึกแฮ็กเชิงเกมบนแพลตฟอร์มต่างๆ เรียนรู้ด้วยการลงมือทำ"
         titleTh: "การแข่งขัน CTF"
         children: ["HackTheBox", "TryHackMe", "VulnHub", "picoCTF", "pwn.college"]
       - title: "Beginner Certifications"
+        level: 2
+        note: "ใบรับรองระดับเริ่มต้นที่ใช้ยืนยันพื้นฐาน เช่น A+, Network+, Security+"
         titleTh: "ใบรับรองระดับเริ่มต้น"
         children: ["CompTIA A+", "CompTIA Linux+", "CompTIA Network+", "CCNA", "CompTIA Security+"]
       - title: "Advanced Certifications"
+        level: 3
+        note: "ใบรับรองระดับสูงสำหรับสายเฉพาะทาง เช่น OSCP, CISSP"
         titleTh: "ใบรับรองระดับสูง"
         children: ["CEH", "CISA", "CISM", "GSEC", "GPEN", "GWAPT", "GIAC", "OSCP", "CREST", "CISSP"]
       - title: "Keep Learning"
+        level: 3
+        note: "แหล่งฝึกต่อเนื่องสำหรับการโจมตีเชิงระบบ (GTFOBins, WADComs)"
         titleTh: "เรียนรู้ต่อเนื่อง"
         children: ["GTFOBins", "WADCOMS"]
