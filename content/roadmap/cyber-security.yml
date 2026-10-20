@@ -69,27 +69,35 @@ groups:
     topics:
       - title: "Understand the OSI Model"
         titleTh: "โมเดล OSI"
+        lesson: /roadmap-sh/fundamental-it-skills/03-core-computer-networking/01-osi-model-and-network-layers
       - title: "Common Protocols and their Uses"
         titleTh: "โปรโตคอลที่พบบ่อยและการใช้งาน"
+        lesson: /roadmap-sh/fundamental-it-skills/03-core-computer-networking/02-common-network-protocols
       - title: "Common Ports and their Uses"
         titleTh: "พอร์ตที่พบบ่อยและการใช้งาน"
+        lesson: /roadmap-sh/fundamental-it-skills/03-core-computer-networking/03-common-ports-and-services
       - title: "SSL and TLS Basics"
         titleTh: "พื้นฐาน SSL และ TLS"
       - title: "Basics of NAS and SAN"
         titleTh: "พื้นฐาน NAS และ SAN"
       - title: "Basics of Subnetting"
         titleTh: "พื้นฐานการแบ่งซับเน็ต"
+        lesson: /roadmap-sh/fundamental-it-skills/03-core-computer-networking/05-subnetting-subnet-masks-and-cidr
       - title: "Public vs Private IP Addresses"
         titleTh: "IP สาธารณะและ IP ส่วนตัว"
+        lesson: /roadmap-sh/fundamental-it-skills/03-core-computer-networking/04-public-and-private-ip-addresses
       - title: "IP Terminology"
         titleTh: "ศัพท์เกี่ยวกับ IP"
         children: ["localhost", "loopback", "CIDR", "subnet mask", "default gateway"]
+        lesson: /roadmap-sh/fundamental-it-skills/04-advanced-network-configuration-and-analysis/01-localhost-loopback-and-default-gateways
       - title: "Understand the Terminology"
         titleTh: "ศัพท์เครือข่ายสำคัญ"
         children: ["VLAN", "DMZ", "ARP", "VM", "DHCP", "DNS", "NAT", "IP", "Router", "Switch", "VPN", "MAN", "LAN", "WAN", "WLAN"]
+        lesson: /roadmap-sh/fundamental-it-skills/04-advanced-network-configuration-and-analysis/03-routing-switching-vlans-and-dmz
       - title: "Network Services"
         titleTh: "บริการเครือข่ายพื้นฐาน"
         children: ["DHCP", "DNS", "NTP", "IPAM"]
+        lesson: /roadmap-sh/fundamental-it-skills/04-advanced-network-configuration-and-analysis/02-dhcp-dns-and-nat
       - title: "Network Topologies"
         titleTh: "รูปแบบการเชื่อมต่อเครือข่าย"
         children: ["Star", "Ring", "Mesh", "Bus"]
@@ -101,6 +109,7 @@ groups:
         children: ["Hypervisor", "VM", "GuestOS", "HostOS", "VMWare", "VirtualBox", "ESXi", "Proxmox"]
       - title: "Troubleshooting Tools"
         titleTh: "เครื่องมือแก้ปัญหาเครือข่าย"
+        lesson: /roadmap-sh/fundamental-it-skills/04-advanced-network-configuration-and-analysis/04-ping-traceroute-and-nslookup
         children: ["ping", "ipconfig", "tracert", "nslookup", "dig", "arp", "netstat", "route", "nmap", "tcpdump", "iptables", "Packet Sniffers", "Port Scanners", "Protocol Analyzers"]
       - title: "Authentication Methodologies"
         titleTh: "วิธียืนยันตัวตน"
@@ -122,6 +131,7 @@ groups:
         titleTh: "แนวคิด Zero Trust"
       - title: "Perimeter vs DMZ vs Segmentation"
         titleTh: "ขอบเขตเครือข่าย DMZ และการแบ่งส่วน"
+        lesson: /roadmap-sh/fundamental-it-skills/04-advanced-network-configuration-and-analysis/03-routing-switching-vlans-and-dmz
       - title: "Understand the Definition of Risk"
         titleTh: "ความหมายของความเสี่ยง"
       - title: "Understand Backups and Resiliency"
@@ -215,6 +225,7 @@ groups:
         titleTh: "คู่มือปฏิบัติการ (Runbook)"
       - title: "Tools for Incident Response and Discovery"
         titleTh: "เครื่องมือรับมือเหตุการณ์"
+        lesson: /roadmap-sh/fundamental-it-skills/04-advanced-network-configuration-and-analysis/05-capturing-and-analyzing-packets-with-wireshark
         children: ["nmap", "tracert", "nslookup", "curl", "hping", "ping", "arp", "cat", "dd", "head", "grep", "tail", "dig", "ipconfig", "wireshark", "winhex", "memdump", "FTK Imager", "autopsy"]
       - title: "Understand Common Tools"
         titleTh: "เครื่องมือตรวจสอบไฟล์และเว็บ"
