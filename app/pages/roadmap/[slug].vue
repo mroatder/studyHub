@@ -28,7 +28,7 @@ onBeforeUnmount(() => window.removeEventListener('keydown', onKey))
   <main v-if="data" class="mx-auto max-w-6xl px-4 py-10">
     <NuxtLink to="/roadmap" class="text-sm text-mute transition hover:text-ink">← แผนที่ทั้งหมด</NuxtLink>
     <p class="mt-4 text-xs font-medium uppercase tracking-wide text-mute">{{ data.map.role ?? 'Roadmap' }}</p>
-    <h1 class="mt-1 text-3xl font-bold">{{ data.map.titleTh }}</h1>
+    <h1 class="mt-2 text-3xl font-bold leading-[1.4]">{{ data.map.titleTh }}</h1>
     <p class="mt-3 leading-8 text-ink/80">{{ data.map.description }}</p>
     <a
       v-if="data.map.sourceUrl"

@@ -17,8 +17,8 @@ useHead({ title: `${data.value.course.titleTh} · Stackup` })
     :modules="data.modules"
   >
     <main class="mx-auto max-w-5xl px-4 py-10 lg:px-8">
-      <p class="text-xs font-medium uppercase tracking-wide text-mute">{{ data.course.sourceName }}</p>
-      <h1 class="text-3xl font-bold">{{ data.course.titleTh }}</h1>
+      <p class="mb-2 text-xs font-medium uppercase tracking-wide text-mute">{{ data.course.sourceName }}</p>
+      <h1 class="text-3xl font-bold leading-[1.4]">{{ data.course.titleTh }}</h1>
       <p class="text-mute">{{ data.course.title }}</p>
       <p class="mt-4 leading-8 text-ink/80">{{ data.course.description }}</p>
       <a
