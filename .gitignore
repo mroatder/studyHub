@@ -25,3 +25,6 @@ logs
 
 # โน้ตดิบจากต้นฉบับ roadmap.sh (ห้ามขึ้น repo public)
 notes/
+
+# Static backups (npm run backup)
+backup
