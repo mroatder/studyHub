@@ -23,22 +23,6 @@ createdAt: 2026-10-20
 8. แก้ปัญหาแบบ bottom-up โดยเลือกคำสั่งที่ตรวจแต่ละชั้นได้
 9. จับคู่การโจมตีกับชั้นที่เกิด และเสนอการป้องกันแบบหลายชั้น (defense in depth)
 
-## สรุปสั้น (TL;DR)
-
-เครือข่ายซับซ้อนเกินกว่าจะออกแบบเป็นก้อนเดียว วิศวกรจึง **แบ่งเป็นชั้น** แต่ละชั้นให้บริการแก่ชั้นบน โดยใช้บริการของชั้นล่าง และคุยกับ "เพื่อนร่วมชั้น" ปลายทางผ่าน header ของตัวเอง
-
-| ชั้น | ชื่อ | PDU | ตัวอย่าง | อุปกรณ์ |
-|---|---|---|---|---|
-| 7 | Application | data | HTTP, DNS, SMTP | – |
-| 6 | Presentation | data | UTF-8, TLS, การบีบอัด | – |
-| 5 | Session | data | การจัดการ session | – |
-| 4 | Transport | segment / datagram | TCP, UDP (พอร์ต) | firewall แบบ stateful |
-| 3 | Network | packet | IP (ที่อยู่ IP, TTL) | router |
-| 2 | Data Link | frame | Ethernet (MAC, CRC) | switch |
-| 1 | Physical | bit | สายทองแดง ไฟเบอร์ คลื่นวิทยุ | hub, สาย, NIC |
-
-จำ: "All People Seem To Need Data Processing" (Application ลงไป Physical) และกฎการแก้ปัญหา: **ตรวจจากล่างขึ้นบน**
-
 ## เปรียบเทียบกับชีวิตจริง
 
 การส่งจดหมายสำคัญระหว่างบริษัท
